@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  background-color: plum;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #8e3a59, #3c74b6);
+  background-size: 400% 400%;
+  animation: gradientBackground 10s ease infinite;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.info {
+  font-family: "Press Start 2P";
+  font-size: 0.8em;
+  text-align: center;
+  margin: 4em;
+  color: white;
+  letter-spacing: 1px;
+  -webkit-text-stroke: black 0.4px;
+}
+
+h3 {
+  -webkit-text-stroke: blue 0.1px;
+}
+
+#outcome {
+  -webkit-text-stroke: 0px;
+}
+
+.coin-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.coin-shadow {
+  position: absolute;
+  bottom: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  animation-name: coin-shadow-animation;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.45, 0.8, 0.25, 1);
+}
+
+@keyframes coin-shadow-animation {
+  0% {
+    transform: translateX(-50%) scaleY(0.5); /* Adjust only the vertical scale */
+  }
+
+  50% {
+    transform: translateX(-50%) scaleY(1.2); /* Adjust only the vertical scale */
+  }
+
+  100% {
+    transform: translateX(-50%) scaleY(1); /* Reset the scale back to normal */
+  }
+}
+
+.coin {
+  font-family: "Press Start 2P";
+  font-size: 0.8em;
+  border-radius: 50%;
+  color: rgb(225, 174, 47);
+  border: black solid 2px;
+  text-align: center;
+  background-color: yellow;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  width: 200px;
+  height: 200px;
+  text-wrap: nowrap;
+  overflow: visible;
+
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+  position: relative;
+}
+
+.coin span {
+  position: absolute;
+  font-size: 4em;
+  top: 40%;
+  backface-visibility: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: transform 1s ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.coin-text_yes {
+  right: 11%;
+}
+
+.coin-text_no {
+  transform: rotateY(180deg);
+  right: 28%;
+}
